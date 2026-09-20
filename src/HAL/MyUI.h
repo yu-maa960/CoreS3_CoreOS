@@ -6,10 +6,10 @@
 #include "Common/App_State.h"
 
 class MyUI {
-private :
-    MyUI() = delete;    
+private : 
     inline static M5Canvas sprite{};
 public :
+    MyUI() = delete;   
     static void begin(); 
     static M5Canvas& return_sprite();
 

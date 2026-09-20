@@ -32,7 +32,7 @@ bool Music::memory_for_music(const char* musicFileName) {
     strncpy(loopName, musicFileName, sizeof(loopName) - 1);
     loopName[sizeof(loopName) - 1] = '\0';
 
-    char introPath[30]{};
+    char introPath[32]{};
     snprintf(introPath, sizeof(introPath), "/_intro_%s", loopName);
 
     File intro = SD.open(introPath);
@@ -44,7 +44,7 @@ bool Music::memory_for_music(const char* musicFileName) {
 
 void Music::play() {
     if (exi_intro) {
-        char introPath[30]{};
+        char introPath[32]{};
         snprintf(introPath, sizeof(introPath), "/_intro_%s", loopName);
 
         File intro = SD.open(introPath);

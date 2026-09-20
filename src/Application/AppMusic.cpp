@@ -9,7 +9,7 @@
 
 void AppMusic::setFileName() {
     const char* fileName_from_Co_Info{Co_Info::getMusicFileName()};
-    if (fileName_from_Co_Info) {
+    if (fileName_from_Co_Info != nullptr) {
         strncpy(musicFileName, fileName_from_Co_Info, sizeof(musicFileName) - 1);
         musicFileName[sizeof(musicFileName) - 1] = '\0';
     }
@@ -19,6 +19,7 @@ void AppMusic::setup()
 {
     setFileName();
     Music::init();
+    MyUI::drawMusic();
 }
 
 bool AppMusic::play()
@@ -41,7 +42,6 @@ void AppMusic::loop()
     if (firstLoop) {
         firstLoop = false;
         play();
-        MyUI::drawMusic();
     }
 
     Music::update();

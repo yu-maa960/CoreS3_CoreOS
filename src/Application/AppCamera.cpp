@@ -27,7 +27,7 @@ void AppCamera::loop()
         Camera_Touch result{MyUI::checkCameraSelection()};
         switch (result) {
             case Camera_Touch::Right: {
-                char fileName[30];
+                char fileName[32];
                 auto dt = M5.Rtc.getDateTime();
                 sprintf(fileName, "/photo_%04d%02d%02d_%02d%02d%02d.jpg", 
                         dt.date.year, 
@@ -43,7 +43,6 @@ void AppCamera::loop()
                 }
                 break;
             }
-
             case Camera_Touch::Left: {
                 M5.Display.waitDisplay();
 
@@ -54,7 +53,6 @@ void AppCamera::loop()
                 stop();
                 break;
             }
-
             case Camera_Touch::Invalid: {
                 break;
             }

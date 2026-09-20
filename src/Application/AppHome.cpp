@@ -7,8 +7,8 @@
 
 void AppHome::setup() {
     MyUI::drawHomeScreen();
-    IPAdr = My_WiFi::getIPAdr();
-    if (IPAdr != nullptr && IPAdr[0] != '\0') {
+    if (WiFi.status() == WL_CONNECTED) {
+        IPAdr = My_WiFi::getIPAdr();
         MyUI::drawIPAddress(IPAdr);
         IPDrawn = true;
     }
@@ -16,8 +16,8 @@ void AppHome::setup() {
 
 void AppHome::loop() {
     if (!IPDrawn) {
-        IPAdr = My_WiFi::getIPAdr();
-        if (IPAdr != nullptr && IPAdr[0] != '\0') {
+        if (WiFi.status() == WL_CONNECTED) {
+            IPAdr = My_WiFi::getIPAdr();
             MyUI::drawIPAddress(IPAdr);
             IPDrawn = true;
         }
@@ -27,7 +27,7 @@ void AppHome::loop() {
     if (nextMode != Mode::HOME) {
         if (nextMode == Mode::Controller) {
             MyUI::drawController();
-            delay(2000);
+            delay(2000);    //今だけ不格好
             MyUI::drawHomeScreen();
         } else {
             OSRequest req{};

@@ -15,7 +15,6 @@ namespace System_SD {
             Serial.println("Write Error: Data length mismatch");
             return false;
         }
-        Serial.println("Perfect!");
         return true;
     }
 

@@ -6,8 +6,8 @@ class Sensor {
     //センサ: Unit ENV-Ⅲ用
     inline static SHT3X sht3x{};
     inline static QMP6988 qmp{};
-    Sensor() = delete;
 public:
+    Sensor() = delete;
     static bool init();
     static sensor_Data sendData();
     static void fina();

@@ -23,9 +23,8 @@ class Camera {
     static constexpr int D7    = 47;
     static constexpr int RESET = -1;
     static constexpr int PWDN  = -1;
-
-    Camera() = delete;
 public:
+    Camera() = delete;
     static bool init();
     static void drawPicture(CameraFrame& outFrame);
     static void capture(CameraFrame& outFrame);

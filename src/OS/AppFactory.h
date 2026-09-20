@@ -4,5 +4,6 @@
 
 class AppFactory {
 public :
+    AppFactory() = delete;
     static AppBase* create(Mode mode);
 };

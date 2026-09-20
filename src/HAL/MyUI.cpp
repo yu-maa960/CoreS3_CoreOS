@@ -133,6 +133,7 @@ void MyUI::drawMusic()
     sprite.fillScreen(TFT_BLACK);
     showMes("Now Playing...", 20, 10, 2);
     const char* fileName = Co_Info::getMusicFileName();
+    fileName++; //'/'を除きたい
     sprite.setTextSize(2); 
     int text_w = sprite.textWidth(fileName); 
     int center_x = (320 - text_w) / 2;  //余白

@@ -9,7 +9,7 @@
 
 void AppSD::setup()
 {
-    fileNames.reserve(1500);//30文字*50個分を確保．
+    fileNames.reserve(1600);//32文字*50個分を確保．
     if (!MySD::init(fileCount, fileNames)) {
         MyUI::showErrorMes("Failed to access SD card");
         init_success = false;
@@ -44,6 +44,7 @@ void AppSD::loop()
                     req.type = RequestType::APP_INITIALIZE;
                     req.state = Mode::HOME;
                     CoreOS::getInstance().post(req);
+                    return;
                 }
                 case SD_Action::SCROLL_UP: { 
                     if (cursorIndex == 0) {

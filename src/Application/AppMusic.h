@@ -8,7 +8,7 @@ class AppMusic : public AppBase {
 private :
     bool exi_intro{false};
     bool firstLoop{true};
-    char musicFileName[30]{};
+    char musicFileName[32]{};
 public :
     AppMusic() {};
     void setFileName();

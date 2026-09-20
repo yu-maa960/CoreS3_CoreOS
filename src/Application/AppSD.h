@@ -11,7 +11,7 @@ private :
     int fileCount{0};
     bool init_success = true;
     bool isImageDrawn{false};
-    char fileName[30]{};
+    char fileName[32]{};
     std::vector<char> fileNames{};
     SD_State SDState{SD_State::LIST};
     SD_Action SDAction = SD_Action::NONE;
