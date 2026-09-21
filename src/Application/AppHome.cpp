@@ -7,8 +7,10 @@
 
 void AppHome::setup() {
     MyUI::drawHomeScreen();
-    if (WiFi.status() == WL_CONNECTED) {
-        IPAdr = My_WiFi::getIPAdr();
+    const char* currentIP = My_WiFi::getIPAdr();
+    
+    if (currentIP != nullptr && currentIP[0] >= '0' && currentIP[0] <= '9') {
+        IPAdr = currentIP;
         MyUI::drawIPAddress(IPAdr);
         IPDrawn = true;
     }
@@ -16,8 +18,10 @@ void AppHome::setup() {
 
 void AppHome::loop() {
     if (!IPDrawn) {
-        if (WiFi.status() == WL_CONNECTED) {
-            IPAdr = My_WiFi::getIPAdr();
+        const char* currentIP = My_WiFi::getIPAdr();
+    
+        if (currentIP != nullptr && currentIP[0] >= '0' && currentIP[0] <= '9') {
+            IPAdr = currentIP;
             MyUI::drawIPAddress(IPAdr);
             IPDrawn = true;
         }
